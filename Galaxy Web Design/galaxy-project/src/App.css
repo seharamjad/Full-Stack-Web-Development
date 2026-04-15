@@ -1,0 +1,31 @@
+/* #1d2948
+#050816 */
+
+:root{
+  --background-color1: #1d2948;
+  --background-color2:  #050816;
+  --text-color: #B6B6B6;
+  --text-color1: #BDC5E2;
+}
+
+body{
+  background: linear-gradient(40deg, var(--background-color1), var(--background-color2));
+}
+
+.Row_2_text{
+  color: var(--text-color);
+}
+
+.Row_2_main_text{
+  color: var(--text-color1);
+}
+
+.back-img{
+  background-image: url("../public/Images/Solar\ System.png");
+  background-repeat: no-repeat;
+}
+
+.sun_img{
+  height: 400px;
+  width: 400px;
+}

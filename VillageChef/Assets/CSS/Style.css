@@ -1,0 +1,42 @@
+:root{
+    --bs-primary:#F7B41A;
+}
+
+body{
+    background-color: #181818;
+}
+
+.h-heading{
+    font-family: Contrail One;
+    font-size: 4.5rem;
+    /* padding-left: 1.3rem; */
+}
+
+.h-heading span{
+    color: var(--bs-primary);
+}
+
+.btn-primary{
+    --bs-btn-bg:var(--bs-primary);
+    --bs-btn-border-color:var(--bs-primary);
+
+    --bs-btn-hover-bg:var(--bs-primary);
+    --bs-btn-hover-border-color:var(--bs-primary);
+
+    --bs-btn-active-bg:var(--bs-primary);
+    --bs-btn-active-border-color:var(--bs-primary)
+}
+
+.img1{
+    left:0px;
+    z-index:1;
+
+}
+.img2{
+    left:70px;
+    z-index: 2;
+}
+.img3{
+    left:140px;
+    z-index: 3;
+}

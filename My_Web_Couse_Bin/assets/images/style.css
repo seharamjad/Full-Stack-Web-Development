@@ -1,0 +1,69 @@
+/* Absolute Position Example 
+.Position_Box1{
+    height: 300px;
+    width: 300px;
+    background-color: rgb(29, 84, 123);
+    position: absolute;
+}
+
+.Position_Box2{
+    height: 200px;
+    width: 200px;
+    background-color: aquamarine;
+    position: absolute;
+    z-index: 10;
+}
+
+.Position_Box3{
+    height: 100px;
+    width: 100px;
+    background-color: rgb(142, 24, 46);
+    position: absolute;
+    /* right: 10px;
+    top: 100px; 
+    left: 1100px;
+    bottom: 10px;
+} */
+.P_Img1{
+    width: 500px;
+
+}
+
+.P_Img2{
+    width: 200px;
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+
+}
+.P_Parent{
+    height: 600px;
+    width: 550px;
+    background-color: #181818;
+    position: relative;
+}
+
+.P_Height_Box{
+    height: 1500px;
+    width: 200px;
+    background-color: bisque;
+}
+
+.P_Fix{
+    height: 100px;
+    width: 100px;
+    background-color: rgb(128, 179, 62);
+    position: fixed;
+    border-radius: 50px;
+    left: 10px;
+}
+
+/* .P_Sticky{
+    height: 100px;
+    width: 100px;
+    background-color: blueviolet;
+    position: sticky;
+    top: 50px;                   /* In Sticky, we can must apply top 
+    border-radius: 50px;
+    right: 100px;
+} */

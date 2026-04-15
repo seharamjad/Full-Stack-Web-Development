@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Learning JSON-for each</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <!-- <button onclick="changedData();" class="btn btn-info">
+        Get Products 
+    </button> -->
+
+    <div class="container">
+        <div id="productRow" class="row">
+
+        </div>
+    </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+    <script>
+
+        changedData();
+
+        function changedData() {
+            var product1 = {
+                name: "Pasta",
+                price: 700,
+                description: "Alfredo Pasta Served with Garlic Bread",
+                image: "https://tse4.mm.bing.net/th/id/OIP.HOa8sQX1I8MreDSBmR-LIwHaE8?pid=Api&h=220&P=0",
+                rating: 4.3
+            };
+
+
+
+            // var productRow = document.getElementById("productRow");
+            // productRow.innerHTML =
+            // `<div class="col-3">
+            //     <div class="card shadow">
+            //         <img class="card-img-top" src="${product1.image}" alt="Card image cap">
+            //     <div class="card-body">
+            //         <div class="d-flex justify-content-between">
+            //             <h5 class="card-title">${product1.name}</h5>
+            //             <h5 class="card-title">${product1.price} Rs</h5>
+            //         </div>
+            //             <p class="card-text">${product1.description}.</p>
+            //             <a href="#" class="btn btn-primary">Add to Cart</a>
+            //     </div>
+            //     </div>
+            // </div>`
+
+
+
+            var products = [
+                {
+                    name: "Pasta",
+                    price: 700,
+                    description: "Alfredo Pasta Served with Garlic Bread",
+                    image: "https://tse4.mm.bing.net/th/id/OIP.HOa8sQX1I8MreDSBmR-LIwHaE8?pid=Api&h=220&P=0",
+                    rating: 4.3
+                },
+                {
+                    name: "Burger",
+                    price: 1200,
+                    description: "A crispy, spicy fried chicken fillet layered with fresh lettuce",
+                    image: "https://img.freepik.com/premium-photo/zinger-burger-with-fries-black-background_1016701-1622.jpg",
+                    rating: 4.3
+                },
+                {
+                    name: "Pizza",
+                    price: 1800,
+                    description: "A cheesy, oven-baked delight topped with rich tomato sauce",
+                    image: "http://images.unsplash.com/photo-1563245738-9169ff58eccf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMjA3fDB8MXxzZWFyY2h8Mnx8cGl6emElMjByZXN0YXVyYW50fHwwfHx8fDE2MjkxOTg1ODE&ixlib=rb-1.2.1&q=80&w=1080",
+                    rating: 4.3
+                },
+                {
+                    name: "Sushi",
+                    price: 2500,
+                    description: "A delicate Japanese dish made with seasoned rice, fresh seafood",
+                    image: "https://plus.unsplash.com/premium_photo-1668146927669-f2edf6e86f6f?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                    rating: 4.3
+                },
+                {
+                    name: "Fries",
+                    price: 299,
+                    description: "A crispy, golden potato sticks lightly salted and perfectly fried",
+                    image: "https://media.istockphoto.com/photos/appetizing-french-fries-in-a-bowl-picture-id966934632?b=1&k=20&m=966934632&s=170667a&w=0&h=7zJeIigX9iEiK_cFC5scOWCNzehRfbQZGS54KBpTlqY=",
+                    rating: 4.3
+                },
+                {
+                    name: "Steaks",
+                    price: 3200,
+                    description: "A thick, tender cut of meat grilled or seared to perfection",
+                    image: "https://media.istockphoto.com/id/1431017645/fr/photo/steaks-steak-de-viande-grill%C3%A9e-tranch%C3%A9e-new-york-ou-striploin-aux-%C3%A9pices-romarin-et-poivre.webp?a=1&b=1&s=612x612&w=0&k=20&c=bVJUjCU4jydoiEBwyiGZb51HgJdyZF5iaRuKMuy2dFE=",
+                    rating: 4.3
+                },
+                {
+                    name: "savory pastry",
+                    price: 500,
+                    description: "Alfredo Pasta Served with Garlic Bread",
+                    image: "https://media.istockphoto.com/id/1430060145/photo/sweet-tasty-fried-indian-dish-samosha-indian-delicious-deep-fried-breakfast-samosa-also-know.webp?b=1&s=170667a&w=0&k=20&c=FS7QGLxCF4YZLV3SrFGvJfoWx23df-qdCVU9umKjhec=",
+                    rating: 4.3
+                },
+                {
+                    name: "Cake",
+                    price: 500,
+                    description: "Alfredo Pasta Served with Garlic Bread",
+                    image: "https://loverly.com/api/v1/attachments/a4041037-1255-4d99-b9a9-71d7d42fb0f5",
+                    rating: 4.3
+                }
+
+            ]
+
+            var productRow = document.getElementById("productRow");
+            var productData = ""
+            products.forEach(data => {
+                productData += `<div class="col-3">
+                <div class="card shadow">
+                    <img class="card-img-top" src="${data.image}" alt="Card image cap">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                        <h5 class="card-title">${data.name}</h5>
+                        <h5 class="card-title">${data.price} Rs</h5>
+                    </div>
+                        <p class="card-text">${data.description}.</p>
+                        <a href="#" class="btn btn-primary">Add to Cart</a>
+                </div>
+                </div>
+            </div>`;
+
+            });
+            productRow.innerHTML = productData;
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>

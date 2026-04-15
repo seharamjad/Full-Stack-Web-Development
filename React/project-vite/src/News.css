@@ -1,0 +1,281 @@
+/* NewsHub - NO FLICKER VERSION */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    overflow-x: hidden;
+}
+
+/* FIXED: Remove all transitions from body/global to prevent flicker */
+:root {
+    --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    --dark-bg: #0f0f23;
+    --card-bg: rgba(255, 255, 255, 0.95);
+    --glass-bg: rgba(255, 255, 255, 0.1);
+    --text-primary: #1a1a2e;
+    --text-secondary: #5f6c7b;
+    --border-light: rgba(255, 255, 255, 0.2);
+}
+
+/* Navbar - FIXED: No backdrop-filter on mobile */
+.navbar {
+    background: rgba(15, 15, 35, 0.98) !important;
+    /* Higher opacity */
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border-light);
+    padding: 1rem 0;
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1030;
+    /* FIXED: No transition here */
+}
+
+.navbar-brand {
+    font-weight: 800 !important;
+    font-size: 2rem !important;
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -1px;
+}
+
+.nav-link {
+    color: rgba(255, 255, 255, 0.9) !important;
+    font-weight: 500;
+    margin: 0 0.5rem;
+    padding: 0.75rem 1.5rem !important;
+    border-radius: 25px;
+    /* FIXED: Reduced transition time */
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.nav-link:hover {
+    color: #fff !important;
+    background: var(--glass-bg);
+    transform: translateY(-1px);
+    /* Reduced movement */
+}
+
+/* Hero Section - FIXED: Stable layout */
+.hero-section {
+    background: linear-gradient(135deg, #0f0f23 0%, #1a1a3e 100%);
+    padding: 8rem 0 4rem 0;
+    /* Extra top padding for fixed navbar */
+    position: relative;
+    /* FIXED: No overflow hidden */
+}
+
+.hero-card {
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--border-light);
+    border-radius: 24px;
+    padding: 3rem;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+    /* FIXED: No transitions */
+}
+
+.hero-card h1 {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 800;
+    background: linear-gradient(135deg, #fff 0%, #e0e6ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+}
+
+.hero-card p {
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.95);
+    font-weight: 400;
+}
+
+/* News Grid - FIXED: Pre-calculated heights */
+.news-container {
+    padding: 4rem 0;
+    background: linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%);
+    min-height: 100vh;
+}
+
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+/* FIXED: Reserve space for cards to prevent layout shift */
+.news-card {
+    background: #fff;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    height: 520px;
+    /* FIXED height */
+    position: relative;
+    /* FIXED: Only transform, no shadow changes */
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.news-card:hover {
+    transform: translateY(-8px);
+}
+
+.news-image {
+    width: 100%;
+    height: 220px;
+    /* FIXED height */
+    object-fit: cover;
+    /* FIXED: No scale transform */
+}
+
+.news-card-body {
+    padding: 2rem;
+    height: 240px;
+    /* FIXED height */
+    display: flex;
+    flex-direction: column;
+}
+
+.news-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.4;
+    margin-bottom: 1rem;
+    flex-grow: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.news-description {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: auto;
+    flex-grow: 1;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.news-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    flex-shrink: 0;
+}
+
+.news-creator {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+    max-width: 60%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.read-more-btn {
+    background: var(--primary-gradient);
+    border: none;
+    padding: 0.6rem 1.25rem;
+    border-radius: 25px;
+    color: white;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: transform 0.2s ease;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.read-more-btn:hover {
+    transform: translateY(-1px);
+    color: white !important;
+}
+
+.country-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: var(--primary-gradient);
+    color: white;
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Loading - FIXED: Full viewport */
+.loading-container {
+    min-height: 100vh;
+    background: var(--primary-gradient);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 8rem;
+    /* Account for navbar */
+}
+
+.spinner-border {
+    width: 4rem;
+    height: 4rem;
+    border-width: 0.4em;
+}
+
+/* Footer */
+footer {
+    background: var(--dark-bg);
+    color: rgba(255, 255, 255, 0.9);
+    padding: 2rem 0;
+}
+
+/* Responsive - FIXED: No layout shifts */
+@media (max-width: 768px) {
+    .news-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .news-card {
+        height: 500px;
+    }
+
+    .hero-section {
+        padding-top: 7rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .country-badge {
+        position: static;
+        margin: 1rem 1rem 0 1rem;
+        display: inline-block;
+    }
+
+    .news-card {
+        height: 480px;
+    }
+}

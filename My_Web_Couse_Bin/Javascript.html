@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Learning JavaScript</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+
+<body>
+    <!-- <h1 id="heading-text">Hello, world!</h1> -->
+    <!-- <button class="btn btn-danger" onclick="document.getElementById('heading-text').innerHTML ='Hello Students'">Click
+        Me</button>
+    <button class="btn btn-danger" onclick="document.getElementById('heading-text').style.color ='red'">Changed
+        Color</button>
+    <button class="btn btn-danger" onclick="document.getElementById('heading-text').style.fontSize ='4rem'">Changed
+        Font Size</button> -->
+
+
+    <!-- <button class="btn btn-danger" onclick="ChangedText()">Click Me</button> -->
+
+
+    <img src="assets/images/b2_burger2.png" id="img" alt="">
+    <button class="btn btn-warning" onclick="changeImage()">Changed Image</button>
+
+
+
+    <div class="d-flex">
+        <input type="password" class="form-control" id="inputpass">
+        <button class="btn btn-primary" onclick=" veiwPassword();"><i class="bi bi-eye-fill"></i></button>
+    </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+    <script>
+        // document.getElementById('heading-text').innerHTML ='Hello Students'
+
+
+        function ChangedText() {
+
+            // var x = 10 
+            // var y = 20
+            // var z = "Hello Corvit "
+            // var a = "Students"
+
+            var alertText = '<div class="alert alert-success">Students</div>'
+
+            var headingText = document.getElementById('heading-text')
+
+            headingText.innerHTML = alertText;
+
+            //  document.getElementById('heading-text').innerHTML = z + a ;      # concatination 
+            headingText.style.color = 'red';
+            headingText.style.fontSize = '4rem';
+        }
+        function changeImage() {
+            var newPath = "assets/images/b1_burger1.png";
+            document.getElementById("img").src = newPath;
+        }
+
+
+        function veiwPassword() {
+            document.getElementById("inputpass").type = "text";
+        }
+
+    </script>
+
+
+</body>
+
+</html>

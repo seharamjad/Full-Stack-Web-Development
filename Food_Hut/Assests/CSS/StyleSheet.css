@@ -1,0 +1,72 @@
+:root {
+    --background-color1: #F54748;
+    --background-color2: #FFFFFF;
+    --text-color: #FDC55E;
+
+}
+body{
+    background: linear-gradient(360deg, var(--background-color1), var(--background-color2));
+}
+
+/* .hero_section {
+    background: linear-gradient(360deg, var(--background-color1), var(--background-color2));
+} */
+.Top-Text{
+    background-color: #f89898;
+    width: 150px;
+    height: 25px;
+    
+}
+.Red_Text {
+    color: var(--background-color1);
+}
+
+.Yellow_Text{
+    color: var(--text-color);
+}
+.search_bar{ 
+        border: 1px solid gray;
+        background-color: var(--background-color2);
+        width: 300px;
+        height: 40px;
+}
+
+.input1{
+    border: none;
+    
+}
+
+.search_icon{
+    border: none;
+    background-color: var(--text-color);
+    
+}
+
+.btn1{
+    background-color: var(--background-color1);
+    outline: var(--background-color1);
+}
+
+.play_button{
+    width: 80px;
+    height: 80px;
+}
+
+.watch_video{
+    color: gray;
+}
+
+.offer_text{
+    max-width: 750px;
+    margin: auto;
+}
+
+.dish-background{
+    background: linear-gradient(360deg, var(--background-color1), var(--background-color2));
+    width: 250px;
+    height: 475px;
+}
+
+.star{
+    color: #FDC55E;
+}

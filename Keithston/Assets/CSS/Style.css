@@ -1,0 +1,97 @@
+:root {
+    --text-sub-heading: #E9BD8C;
+    --bs-primary: #933C24;
+    --bs-hover-primary: #7f341f;
+    --bs-active-primary: #622919;
+}
+
+body {
+    font-family: "Inter";
+}
+
+.h-text {
+    font-family: "Inter";
+    color: var(--text-sub-heading);
+    font-size: 1.5rem;
+}
+
+.h-heading {
+    font-family: "Sansita Swashed";
+}
+
+.header-section {
+    background-image: url("../Images/Rectangle\ 10.png");
+    height: 100vh;
+    /* vh -> veiwport hight  vw -> veiwport width*/
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
+}
+
+/* 
+    background-image: url("image.jpg");
+    background-size: cover;               Makes image cover full screen 
+    background-position: center;          Centers the image 
+    background-repeat: no-repeat;         Prevents repeating
+    height: 100vh;                        Full screen height 
+    margin: 0; */
+
+.btn-primary {
+    --bs-btn-bg: var(--bs-primary);
+    --bs-btn-border-color: var(--bs-primary);
+
+    --bs-btn-hover-bg: var(--bs-hover-primary);
+    --bs-btn-hover-border-color: var(--bs-hover-primary);
+
+    --bs-btn-active-bg: var(--bs-active-primary);
+    --bs-btn-active-border-color: var(--bs-active-primary);
+}
+
+.Learn-More {
+    color: var(--text-sub-heading);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.navbar-items {
+    text-decoration: none;
+
+}
+
+.bi {
+    color: var(--text-sub-heading);
+
+}
+
+.top-p-haeding {
+    font-family: "Sansita Swashed";
+    font-size: 3.5rem;
+}
+
+.home{
+    color: var(--text-sub-heading);
+}
+/* media Query */
+@media(max-width:786px){
+    .top-p-haeding {
+    font-size: 2.8rem;
+}
+}
+
+@media(max-width:586px){
+    .top-p-haeding {
+    font-size: 2.1rem;
+}
+}
+
+.card1{
+    background-image: url(../Images/Products/product-background.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    margin-top: 1rem;
+}
+
+.card1 img{
+    height: 200px;
+}
