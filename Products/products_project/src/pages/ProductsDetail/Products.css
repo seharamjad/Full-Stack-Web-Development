@@ -1,0 +1,23 @@
+
+.badge{
+    height: 20px;
+    text-decoration: dashed;
+
+}
+
+.bi{
+    color: rgb(238, 234, 20);
+}
+
+span{
+    color: rgb(90, 86, 86);
+}
+
+.cutPrice{
+    color: rgb(122, 118, 118);
+    text-decoration: line-through;
+}
+
+.actualPrice{
+    color: darkgreen;
+}
