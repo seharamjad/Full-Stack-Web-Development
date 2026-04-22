@@ -8,6 +8,13 @@ const dotenv = require('dotenv');
 // import the database connection function from config/db.js file 
 const connectDB = require('./config/db');
 
+
+
+// import the route file 
+const studentRoutes = require('./routes/studentRoutes');
+
+
+
 // load environment variable from .env file 
 dotenv.config();
 
@@ -17,11 +24,19 @@ connectDB();
 // Create a variable for using express pakage 
 const app = express();
 
+
 // now indicating the express server to use json format for sending and receiving data 
 app.use(express.json());
 
 // enabling cors for all routes 
 app.use(cors());
+
+
+
+// router calling 
+app.use('/api/students', studentRoutes);
+
+
 
 // running nodejs on registered port
 // getting port from .env file 
