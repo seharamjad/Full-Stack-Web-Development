@@ -1,5 +1,5 @@
 import { Col, Row } from "react-bootstrap";
-import { getAllStudents } from "../api/studentapi";
+import { deleteStudent, getAllStudents } from "../api/studentapi";
 import { useEffect, useState } from "react";
 import StudentCard from "../components/StudentCard";
 
@@ -11,6 +11,8 @@ const HomePage = () => {
     const [loading, setLoading] = useState(false);
     //state for handling the error
     const [error, setError] = useState(null);
+    //hook to showing the messages
+    const [message, setMessage] = useState(null);
 
 
     //function that will fetch the students data from the API
@@ -33,6 +35,19 @@ const HomePage = () => {
         fetchStudents();
     }, []);
 
+    //creating a function to delete the student 
+    const handleDelete = async (id) => {
+        try {
+            const data = await deleteStudent(id);
+            //after deleting the data, now we need to filter the data
+            setStudents(prev => prev.filter(s => s._id !== id))
+            //showing the success message that student is deleted
+            setMessage({ text: data.message })
+        } catch (err) {
+            setMessage({ text: 'Could not delete the student' })
+        }
+    }
+
     return (
         <div>
             <h1>All Students Data</h1>
@@ -44,7 +59,7 @@ const HomePage = () => {
                 <Row xs={1} md={2} lg={4}>
                     {student.map(s => (
                         <Col key={s._id}>
-                            <StudentCard student={s} />
+                            <StudentCard student={s} onDelete={handleDelete} />
                         </Col>
                     ))}
                 </Row>
