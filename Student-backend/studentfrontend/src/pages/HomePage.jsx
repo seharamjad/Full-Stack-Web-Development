@@ -1,4 +1,4 @@
-import { Col, Row } from "react-bootstrap";
+import { Alert, Col, Row } from "react-bootstrap";
 import { deleteStudent, getAllStudents } from "../api/studentapi";
 import { useEffect, useState } from "react";
 import StudentCard from "../components/StudentCard";
@@ -42,15 +42,22 @@ const HomePage = () => {
             //after deleting the data, now we need to filter the data
             setStudents(prev => prev.filter(s => s._id !== id))
             //showing the success message that student is deleted
-            setMessage({ text: data.message })
+            setMessage({ variant: 'success', text: data.message })
         } catch (err) {
-            setMessage({ text: 'Could not delete the student' })
+            setMessage({ variant: 'danger', text: 'Could not delete the student' })
         }
+        //hiding a message after 4 seconds
+        setTimeout(() => setMessage(null), 4000)
     }
 
     return (
         <div>
             <h1>All Students Data</h1>
+            {
+                message && (
+                    <Alert variant={message.variant}>{message.text}</Alert>
+                )
+            }
 
             {/*condition if there is no student data */}
             {student.length === 0 ? (
