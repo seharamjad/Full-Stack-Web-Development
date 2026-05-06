@@ -1,7 +1,6 @@
 // import the pakages that we need to use in our server 
 
 const express = require('express');
-const mongoose = require('mongoose');
 const cors = require('cors');
 const dotenv = require('dotenv');
 
@@ -40,7 +39,7 @@ app.use('/api/students', studentRoutes);
 
 // running nodejs on registered port
 // getting port from .env file 
-const PORT = process.env.PORT
+const PORT = process.env.PORT || 5000
 
 
 // demo running of api 

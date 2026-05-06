@@ -7,8 +7,8 @@ const studentSchema = new mongoose.Schema({
         type: String,
         required: [true, 'Student name is required'],
         trim: true,
-        minLength: [3, 'Name contains at least 3 characters'],
-        maxLength: [40, 'Nmae should not be more than 40 characters']
+        minlength: [3, 'Name contains at least 3 characters'],
+        maxlength: [40, 'Name should not be more than 40 characters']
     },
     email: {
         type: String,

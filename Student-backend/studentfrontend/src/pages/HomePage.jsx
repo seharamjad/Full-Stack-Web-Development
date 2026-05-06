@@ -1,77 +1,72 @@
 import { Alert, Col, Row } from "react-bootstrap";
-import { deleteStudent, getAllStudents } from "../api/studentapi";
+import { deleteStudent, getAllStudents } from "../api/studentApi";
 import { useEffect, useState } from "react";
-import StudentCard from "../components/StudentCard";
+import StudentCard from "../components/studentCard";
+import Loader from "../components/loader";
 
 const HomePage = () => {
-    //defining the hooks 
-    //useState for getting all the students data
     const [student, setStudents] = useState([]);
-    //state for handling the loading
     const [loading, setLoading] = useState(false);
-    //state for handling the error
     const [error, setError] = useState(null);
-    //hook to showing the messages
     const [message, setMessage] = useState(null);
 
 
-    //function that will fetch the students data from the API
     const fetchStudents = async () => {
         try {
             setLoading(true);
             setError(null);
-            const data = await getAllStudents()
-            //passing the data to hook useState
-            setStudents(data.data);
-        } catch (error) {
+            const res = await getAllStudents();
+            setStudents(res.data || []);
+        } catch (err) {
             setError("Error fetching students data");
-            console.log(error);
+            console.log(err);
         } finally {
             setLoading(false);
         }
-    }
-    //using useEffect for getting students data from API
+    };
+
     useEffect(() => {
         fetchStudents();
     }, []);
 
-    //creating a function to delete the student 
     const handleDelete = async (id) => {
         try {
             const data = await deleteStudent(id);
-            //after deleting the data, now we need to filter the data
-            setStudents(prev => prev.filter(s => s._id !== id))
-            //showing the success message that student is deleted
-            setMessage({ variant: 'success', text: data.message })
+            setStudents((prev) => prev.filter((s) => s._id !== id));
+            setMessage({ variant: 'success', text: data.message });
         } catch (err) {
-            setMessage({ variant: 'danger', text: 'Could not delete the student' })
+            setMessage({ variant: 'danger', text: 'Could not delete the student' });
         }
-        //hiding a message after 4 seconds
-        setTimeout(() => setMessage(null), 4000)
+        setTimeout(() => setMessage(null), 4000);
+    };
+
+    if (loading) {
+        return <Loader />;
     }
 
     return (
-        <div>
+        <div className="container py-4">
             <h1>All Students Data</h1>
+            {error && <Alert variant="danger">{error}</Alert>}
             {
                 message && (
                     <Alert variant={message.variant}>{message.text}</Alert>
                 )
             }
 
-            {/*condition if there is no student data */}
             {student.length === 0 ? (
                 <p>No students data found</p>
             ) : (
                 <Row xs={1} md={2} lg={4}>
-                    {student.map(s => (
-                        <Col key={s._id}>
+                    {student.map((s) => (
+                        <Col key={s._id} className="mb-3">
                             <StudentCard student={s} onDelete={handleDelete} />
                         </Col>
                     ))}
                 </Row>
             )}
         </div>
-    )
-}
+    );
+};
+
 export default HomePage;

@@ -1,6 +1,7 @@
 import AppNavbar from "./components/navbar"
-import { BrowserRouter, Routes, Route } from "react-router-dom"
-import HomePage from "./pages/homepage"
+import { BrowserRouter, Routes, Route } from "react-router"
+import HomePage from "./pages/HomePage"
+import AddStudentPage from "./pages/addStudentPage"
 
 function App() {
 
@@ -9,7 +10,7 @@ function App() {
     <AppNavbar />
     <Routes>
       <Route path='/' element={<HomePage />} />
-
+      <Route path='/add-student' element={<AddStudentPage />} />
     </Routes>
     </BrowserRouter>
   )
