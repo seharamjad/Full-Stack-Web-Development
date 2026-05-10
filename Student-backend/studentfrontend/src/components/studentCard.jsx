@@ -1,6 +1,8 @@
-import { Card, Button, Badge } from "react-bootstrap";
+import { Card, Button, Badge, Container } from "react-bootstrap";
+import { useNavigate } from "react-router";
 
 const StudentCard = ({ student, onDelete }) => {
+    const navigate = useNavigate();
 
     const handleDelete = () => {
         if (window.confirm(`Are you sure you want to delete "${student.name}" `)) {
@@ -19,7 +21,7 @@ const StudentCard = ({ student, onDelete }) => {
             </Card.Body>
 
             <Card.Footer className="text-muted pt-4">Marks: <Badge bg="secondary">{student.marks}</Badge>
-                <Button variant="warning" className="float-end mx-2" disabled>Edit</Button>
+                <Button variant="warning" className="float-end mx-2" onClick={() => navigate(`/edit-student/${student._id}`)}>Edit</Button>
                 <Button variant="danger" className="float-end" onClick={handleDelete}>Delete</Button>
             </Card.Footer>
         </Card>

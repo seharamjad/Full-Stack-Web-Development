@@ -9,8 +9,9 @@ const connectDB = require('./config/db');
 
 
 
-// import the route file 
+// import the route files
 const studentRoutes = require('./routes/studentRoutes');
+const authRoutes = require('./routes/authRoutes');
 
 
 
@@ -34,6 +35,7 @@ app.use(cors());
 
 // router calling 
 app.use('/api/students', studentRoutes);
+app.use('/api/auth', authRoutes);
 
 
 
