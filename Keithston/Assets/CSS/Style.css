@@ -95,3 +95,51 @@ body {
 .card1 img{
     height: 200px;
 }
+
+/* .section-3{
+    margin-top: 9rem;
+
+}
+
+.Discount{
+    font-family: "Sansita Swashed";
+    font-size: 2.5rem;
+} */
+
+.image-container {
+    position: relative;
+    display: inline-block;
+}
+
+.section-3 {
+    margin-top: 9rem;
+}
+
+.image-container img {
+    width: 100%;
+}
+
+.text {
+    color: var(--bs-primary);
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: "Sansita Swashed";
+    font-size: 2.5rem;
+}
+
+.text1{
+    color: grey;
+    position: absolute;
+    top: 45%;
+    left: 40%;
+    font-family: "Inter";
+    font-size: 1.2rem;
+}
+
+.learn-btn{
+    position: absolute;
+    top: 65%;
+    left: 45%;
+}
